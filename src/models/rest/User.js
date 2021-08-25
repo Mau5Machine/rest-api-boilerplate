@@ -1,4 +1,4 @@
-const user = (sequelize, DataTypes) => {
+module.export = (sequelize, DataTypes) => {
   const User = sequelize.define(
     'user',
     {
@@ -21,8 +21,10 @@ const user = (sequelize, DataTypes) => {
     }
   );
 
-  User.sync();
+  User.associate = function (models) {
+   // User.belongsToMany(models.company, { through: "userCompany" });
+  };
+
   return User;
 };
 
-export default user;

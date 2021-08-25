@@ -39,4 +39,8 @@ Object.keys(db).forEach((modelName) => {
   }
 });
 
+// Ultimately, send changes to the database. If this is done in the individual 
+// files we would need to do it here again to sync associations.
+db.rest.sync({ force: false });
+
 module.exports = db;
